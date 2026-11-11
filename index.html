@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جاهزة؟ ❤️ 11/11</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            font-family: 'Cairo', 'Tajawal', sans-serif;
+            user-select: none;
+            -webkit-user-select: none;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+            min-height: 100vh;
+            min-height: 100dvh;
+            width: 100vw;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden;
+        }
+
+        .bg-element {
+            position: absolute;
+            pointer-events: none;
+            animation: float 8s infinite ease-in-out;
+            opacity: 0.6;
+            z-index: 0;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-25px) rotate(10deg); }
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.55);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            box-shadow: 0 15px 35px rgba(147, 112, 219, 0.2);
+        }
+
+        .custom-input {
+            background: rgba(255, 255, 255, 0.85);
+            border: 2px solid #b39ddb;
+            transition: all 0.3s ease;
+        }
+
+        .custom-input:focus {
+            border-color: #7e57c2;
+            box-shadow: 0 0 15px rgba(126, 87, 194, 0.3);
+            outline: none;
+        }
+
+        .btn-purple {
+            background: linear-gradient(135deg, #9c27b0, #673ab7);
+            box-shadow: 0 6px 20px rgba(156, 39, 176, 0.3);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .btn-purple:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 10px 25px rgba(156, 39, 176, 0.4);
+        }
+
+        .btn-purple:active {
+            transform: translateY(1px);
+        }
+
+        .falling-heart {
+            position: fixed;
+            top: -10%;
+            font-size: 1.5rem;
+            color: #ff4081;
+            animation: fall linear infinite;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(110vh) rotate(360deg);
+            }
+        }
+
+        .avatar-glow {
+            box-shadow: 0 0 25px rgba(156, 39, 176, 0.4);
+            animation: pulse-glow 3s infinite ease-in-out;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(156, 39, 176, 0.4); }
+            50% { box-shadow: 0 0 35px rgba(233, 30, 99, 0.7); }
+        }
+
+        .screen {
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        
+        .screen-hidden {
+            opacity: 0;
+            pointer-events: none;
+            position: absolute;
+            transform: scale(0.95);
+        }
+
+        audio::-webkit-media-controls-panel {
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen w-full relative overflow-hidden p-4">
+
+    <!-- Background Decorative Elements -->
+    <div class="bg-element text-purple-400 text-3xl" style="top: 10%; left: 15%; animation-delay: 0s;"><i class="fa-solid fa-heart"></i></div>
+    <div class="bg-element text-pink-400 text-4xl" style="top: 70%; left: 80%; animation-delay: 2s;"><i class="fa-solid fa-butterfly"></i></div>
+    <div class="bg-element text-indigo-300 text-2xl" style="top: 25%; right: 10%; animation-delay: 1s;"><i class="fa-solid fa-sparkles"></i></div>
+    <div class="bg-element text-purple-300 text-3xl" style="bottom: 15%; left: 20%; animation-delay: 3s;"><i class="fa-solid fa-heart"></i></div>
+
+    <!-- SCREEN 1: PASSWORD SCREEN -->
+    <div id="screen1" class="screen w-full max-w-sm flex flex-col items-center justify-center z-10 mx-auto my-auto ">
+        <div class="glass-card w-full rounded-3xl p-6 sm:p-8 flex flex-col items-center text-center relative overflow-hidden">
+            
+            <!-- Avatar Image -->
+            <div class="w-24 h-24 rounded-full p-1 bg-gradient-to-tr from-purple-500 to-pink-500 avatar-glow mb-4">
+                <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=300&auto=format&fit=crop" 
+                     alt="Couple holding hands" 
+                     class="w-full h-full object-cover rounded-full"
+                     onerror="this.src='https://placehold.co/200x200/9c27b0/ffffff?text=❤️'">
+            </div>
+
+            <h1 class="text-3xl font-extrabold text-purple-900 mb-1">جاهزه؟؟</h1>
+            <p class="text-sm text-purple-600 font-medium mb-6">my everything</p>
+
+            <form id="passwordForm" onsubmit="handlePasswordSubmit(event)" class="w-full flex flex-col gap-4">
+                <div class="relative w-full text-right">
+                    <label class="block text-xs text-purple-700 font-semibold mb-1 pr-2">Password</label>
+                    <input type="password" 
+                           id="passwordInput" 
+                           placeholder="أدخلي كلمة السر..." 
+                           class="custom-input w-full px-4 py-3 rounded-2xl text-center text-purple-900 text-lg font-bold placeholder-purple-300 tracking-wider">
+                </div>
+
+                <button type="submit" class="btn-purple text-white font-bold py-3 px-6 rounded-2xl text-lg mt-2 w-full flex items-center justify-center gap-2 cursor-pointer">
+                    <span>Unlock</span>
+                    <i class="fa-solid fa-lock-open text-sm"></i>
+                </button>
+            </form>
+
+            <p id="errorMessage" class="text-red-500 text-xs font-semibold mt-3 hidden animate-bounce">
+                كلمة السر غير صحيحة! جربي مرة ثانية 💔
+            </p>
+        </div>
+    </div>
+
+    <!-- SCREEN 2: INTERACTIVE BUTTONS SCREEN -->
+    <div id="screen2" class="screen screen-hidden w-full max-w-lg min-h-[400px] flex items-center justify-center relative z-10 mx-auto my-auto">
+        <div class="w-full h-[450px] relative flex items-center justify-center">
+            
+            <!-- YES BUTTON -->
+            <button id="yesBtn" 
+                    onclick="goToScreen3()"
+                    class="btn-purple text-white font-extrabold rounded-3xl shadow-2xl transition-all duration-300 flex flex-col items-center justify-center gap-2 z-20 cursor-pointer p-6 min-w-[160px] min-h-[140px]">
+                <i class="fa-solid fa-heart text-3xl animate-pulse"></i>
+                <span id="yesBtnText" class="text-xl">بتحبيني؟</span>
+            </button>
+
+            <!-- NO BUTTON -->
+            <button id="noBtn" 
+                    onmouseenter="moveNoBtn()" 
+                    onclick="handleNoClick(event)"
+                    class="glass-card text-purple-900 font-bold rounded-2xl px-5 py-4 shadow-lg transition-all duration-200 flex items-center gap-2 absolute cursor-pointer border-2 border-purple-200 z-30"
+                    style="top: 20%; left: 15%;">
+                <span class="text-xl">🥺</span>
+                <span>مش بحبك</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- SCREEN 3: ROMANTIC MESSAGE & MUSIC -->
+    <div id="screen3" class="screen screen-hidden w-full max-w-md z-10 my-auto mx-auto">
+        <div class="glass-card rounded-3xl p-6 md:p-8 flex flex-col items-center text-center shadow-2xl relative overflow-hidden">
+            
+            <div class="bg-pink-100 text-pink-600 px-4 py-1.5 rounded-full text-xs font-bold mb-4 flex items-center gap-2">
+                <i class="fa-solid fa-sparkles"></i>
+                <span>11 / 11 - يوم مميز جداً</span>
+            </div>
+
+            <div class="w-28 h-28 rounded-full p-1 bg-gradient-to-tr from-pink-500 via-purple-500 to-rose-400 avatar-glow mb-4">
+                <img src="photo1.jpeg"
+                     class="w-full h-full object-cover rounded-full"
+                     onerror="this.src='https://placehold.co/200x200/ff4081/ffffff?text=❤️'">
+            </div>
+
+            <div class="inline-block bg-purple-100 text-purple-800 text-xs font-bold px-3 py-1 rounded-full mb-3">
+                
+            </div>
+
+            <h2 class="text-2xl font-black text-purple-950 mb-3"> ❤️ DODOO </h2>
+
+            <div class="text-gray-700 text-sm md:text-base leading-relaxed font-medium space-y-3 bg-white/40 p-4 rounded-2xl border border-white/60 mb-6 text-right">
+                <p>
+  يوم 11/11 ده مش مميز اوي لان كل يوم معاكي هو يوم مميز بالنسبالي , بس لأنه بيفكرني قد إيه وجودك في حياتي فرّق معايا، وقد إيه بقيتي جزء جميل من كل تفصيلة في أيامي. ❤️
+يمكن مش بعرف أعبّر دايمًا عن اللي جوايا، بس الحقيقة إن وجودك جنبي من أجمل الحاجات اللي حصلتلي
+كل يوم بيعدّي بيأكدلي إني محظوظ إنك في حياتي،
+
+<p class="font-bold text-purple-900 text-center text-base pt-2">
+ربنا يخليكي ليا، ويديم ضحكتك في حياتي، ونفضل دايمًا جنب بعض، نشارك تفاصيلنا الحلوة ونعدّي أي حاجة سوا . ❤️✨ 
+                  </p>
+            </div>
+
+            <div class="w-full bg-white/80 p-4 rounded-2xl border border-purple-100 flex flex-col items-center gap-2 shadow-sm">
+                <div class="flex items-center gap-2 text-purple-800 text-xs font-bold mb-1">
+                    <i class="fa-solid fa-music animate-spin" style="animation-duration: 4s;"></i>
+                    <span>  🎵</span>
+                </div>
+                
+                <audio id="bgMusic" controls autoplay loop class="w-full h-10 rounded-lg">
+                    <source src="take.mp3" type="audio/mp3">
+                   
+                </audio>
+                
+
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        const CORRECT_PASSWORD = "1111"; 
+        let noClickCount = 0;
+        let yesBtnScale = 1;
+
+        function handlePasswordSubmit(e) {
+            e.preventDefault();
+            const input = document.getElementById('passwordInput').value.trim();
+            const errorMsg = document.getElementById('errorMessage');
+
+            if (input.toLowerCase() === CORRECT_PASSWORD.toLowerCase() || input === "1111") {
+                errorMsg.classList.add('hidden');
+                switchScreen('screen1', 'screen2');
+            } else {
+                errorMsg.classList.remove('hidden');
+                document.getElementById('passwordInput').classList.add('border-red-400');
+                setTimeout(() => {
+                    document.getElementById('passwordInput').classList.remove('border-red-400');
+                }, 1000);
+            }
+        }
+
+        function switchScreen(fromId, toId) {
+            const fromEl = document.getElementById(fromId);
+            const toEl = document.getElementById(toId);
+
+            fromEl.classList.add('screen-hidden');
+            setTimeout(() => {
+                fromEl.style.display = 'none';
+                toEl.style.display = 'flex';
+                setTimeout(() => {
+                    toEl.classList.remove('screen-hidden');
+                }, 50);
+            }, 400);
+        }
+
+        function moveNoBtn() {
+            const noBtn = document.getElementById('noBtn');
+            const container = noBtn.parentElement;
+            
+            const containerRect = container.getBoundingClientRect();
+            const btnRect = noBtn.getBoundingClientRect();
+
+            const maxX = containerRect.width - btnRect.width - 20;
+            const maxY = containerRect.height - btnRect.height - 20;
+
+            const randomX = Math.max(10, Math.floor(Math.random() * maxX));
+            const randomY = Math.max(10, Math.floor(Math.random() * maxY));
+
+            noBtn.style.left = `${randomX}px`;
+            noBtn.style.top = `${randomY}px`;
+        }
+
+        function handleNoClick(e) {
+            e.preventDefault();
+            noClickCount++;
+
+            const yesBtn = document.getElementById('yesBtn');
+            const noBtn = document.getElementById('noBtn');
+
+            yesBtnScale += 0.45;
+            yesBtn.style.transform = `scale(${yesBtnScale})`;
+            
+            moveNoBtn();
+
+            if (noClickCount >= 3) {
+                noBtn.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+                noBtn.style.opacity = '0';
+                noBtn.style.transform = 'scale(0)';
+                setTimeout(() => {
+                    noBtn.style.display = 'none';
+                }, 400);
+            }
+        }
+
+        function goToScreen3() {
+            switchScreen('screen2', 'screen3');
+            createFallingHearts();
+            
+            const audio = document.getElementById('bgMusic');
+            if (audio) {
+                audio.play().catch(err => {
+                    console.log("Autoplay prevented by browser, user can click play manually.", err);
+                });
+            }
+        }
+
+        function createFallingHearts() {
+            const heartIcons = ['❤️', '💖', '✨', '💕', '🌸'];
+            for (let i = 0; i < 25; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.classList.add('falling-heart');
+                    heart.innerHTML = heartIcons[Math.floor(Math.random() * heartIcons.length)];
+                    heart.style.left = Math.random() * 100 + 'vw';
+                    heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
+                    heart.style.fontSize = (Math.random() * 1.5 + 1) + 'rem';
+                    document.body.appendChild(heart);
+
+                    setTimeout(() => {
+                        heart.remove();
+                    }, 7000);
+                }, i * 300);
+            }
+
+            setInterval(() => {
+                const heart = document.createElement('div');
+                heart.classList.add('falling-heart');
+                heart.innerHTML = heartIcons[Math.floor(Math.random() * heartIcons.length)];
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
+                heart.style.fontSize = (Math.random() * 1.5 + 1) + 'rem';
+                document.body.appendChild(heart);
+
+                setTimeout(() => {
+                    heart.remove();
+                }, 7000);
+            }, 800);
+        }
+    </script>
+</body>
+</html>
